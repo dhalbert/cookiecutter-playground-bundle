@@ -24,12 +24,14 @@
 # Second Project Config Task: List the libraries you want copied from the
 # library bundles into the lib/ directory of your project bundle.
 #
-# Just list the plain library names, one name per line. The versions will be
-# pinned to whatever versions are inside the the 8.x and 9.x mpy library
-# bundles from the links defined in the [library_bundle] section.
+# Just list the plain library names as a TOML array of strings. You don't need
+# to specify versions because they will be pinned to whatever versions are
+# inside the the 8.x and 9.x mpy library bundles zip files.
 #
 [lib]
-adafruit_midi
+imports = [
+  "adafruit_midi",
+]
 
 
 # Third Project Config Task: List the code files and packages you want copied
@@ -37,10 +39,12 @@ adafruit_midi
 # project bundle
 #
 [root]
-boot.py
-code.py
-settings.toml
-mypackage
+code = [
+  "boot.py",
+  "code.py",
+  "settings.toml",
+  "mypackage",
+]
 
 
 # Fourth Project Config Task: Enter your project metadata to be included in the
