@@ -40,7 +40,7 @@ guide authors share example code with Learn guide readers. As of June 2024,
 BundleFly is not currently available for
 [Adafruit Playground](https://adafruit-playground.com/) authors. For various
 reasons, it might not be practical to add BundleFly to the Playground editor in
-the same way as for Learning System editor.
+the same way as the Learning System editor.
 
 But, by using a GitHub Actions workflow, Playground guide authors can make
 their own project bundle zip files in the style of BundleFly.
@@ -104,7 +104,7 @@ other methods are possible, zip files are good for beginners because they work
 without the need to install additional developer tools
 ([xkcd 1987](https://xkcd.com/1987/)).
 
-According to LadyAda's
+According to Ladyada's
 [What is BundleFly?](https://www.youtube.com/watch?v=UgekT8epJjo) video, the
 blue
 [Download Project Bundle](https://learn.adafruit.com/qtpy-lemon-mechanical-keypad-macropad/code#download-project-bundle-3094704)
