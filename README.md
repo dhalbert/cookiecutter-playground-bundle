@@ -126,8 +126,8 @@ On the "CircuitPython Internet Test" page of the
 [Adafruit MagTag](https://learn.adafruit.com/adafruit-magtag/internet-connect)
 Learn guide, there's a code box near the top of the page. The code box's
 "View on GitHub" link points to
-[ESP32\_S2\_WiFi\_Tests/CPy\_Native\_WiFi\_Test/code.py](https://github.com/adafruit/Adafruit_Learning_System_Guides/blob/main/ESP32_S2_WiFi_Tests/CPy_Native_WiFi_Test/code.py)
-in the Adafruit\_Learning\_System\_Guides repo. When I click the code box's
+[Adafruit\_Learning\_System\_Guides/ESP32\_S2\_WiFi\_Tests/CPy\_Native\_WiFi\_Test/code.py](https://github.com/adafruit/Adafruit_Learning_System_Guides/blob/main/ESP32_S2_WiFi_Tests/CPy_Native_WiFi_Test/code.py)
+on GitHub repo. When I click the code box's
 blue "Download Project Bundle" button, it gives me a file named
 `CPy_Native_WiFi_Test.zip`. When I expand the zip file, it gives me a folder
 named `ESP32_S2_WiFi_Tests`, which contains another folder named
@@ -152,6 +152,40 @@ named `ESP32_S2_WiFi_Tests`, which contains another folder named
         │   └── settings.toml
         └── README.txt
 ```
+
+On GitHub, going up one level from `code.py` to
+[Adafruit\_Learning\_System\_Guides/ESP32\_S2\_WiFi\_Tests/CPy\_Native\_WiFi\_Test](https://github.com/adafruit/Adafruit_Learning_System_Guides/blob/main/ESP32_S2_WiFi_Tests/CPy_Native_WiFi_Test),
+the contents of that directory are just `code.py` and `settings.toml`. So, it
+seems like BundleFly takes care of automatically detecting imports in `code.py`
+and providing the `adafruit_connection_manager.mpy` and `adafruit_requests.mpy`
+files needed to meet those dependencies.
+
+Also, the Learn guide code box shows only `code.py`, but BundleFly apparently
+knows that it should look at the folder containing `code.py` for other files
+(in this case, `settings.toml`). I'm curious how the editor UI works for
+specifying the GitHub repo and directory. Maybe you provide a link to `code.py`
+and the rest is auto-detected? Maybe you provide a link to the folder that
+contains `code.py`? Perhaps there is a way to specify libraries that should be
+included rather than relying on auto-detection (which could be troublesome)?
+
+A complication for auto-detecting library dependencies is that CircuitPython
+allows each board to be configured in the build system for a different set of
+built in (frozen) libraries. This helps with managing RAM and flash, but it
+complicates the process of determining what needs to go in the `CIRCUITPY/lib/`
+directory.
+
+If there is an automatic tool to resolve `import` dependencies in `code.py`
+against lists of frozen packages for various CircuitPython boards, I haven't
+seen it. The docs for [circup](https://github.com/adafruit/circup) say it can
+update your installed libraries, but I found no mention of a feature to detect
+which libraries needed to satisfy imports dependencies on a given board. I'm
+guessing people handle that problem by running the code and watching for import
+errors.
+
+I don't know how or if BundleFly handles the problem of autodetecting missing
+library imports. But, for creating Playground guide project bundles, it seems
+like the straightforward approach would be to require a manifest file listing
+the libraries to include in the bundle.
 
 
 #### Example 2: Lemon Mechanical Keypad
