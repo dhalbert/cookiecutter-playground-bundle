@@ -1,0 +1,17 @@
+name: bundle_builder
+on: push
+jobs:
+  build_bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List files
+        run: ls
+
+      - name: Check out branch source
+        uses: actions/checkout@v4
+
+      - name: Run the bundle builder
+        run: make bundle
+
+      - name: List files again
+        run: ls

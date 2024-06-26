@@ -1,0 +1,59 @@
+# CircuitPython Project Bundle Manifest
+
+# First Project Config Task: Update library bundle links.
+#
+# 1. Open https://github.com/adafruit/Adafruit_CircuitPython_Bundle/releases
+# 2. Find the latest release, then scroll down to its "Assets" section
+# 3. Right click on the adafruit-circuitpython-bundle-8.x-mpy zip file to copy
+#    its link address, then paste that link below on the "8.x" line, replacing
+#    the old link
+# 4. Right click on the adafruit-circuitpython-bundle-9.x-mpy zip file to copy
+#    its link address, then paste that link below on the "9.x" line, replacing
+#    the old link
+#
+# The bundle builder will use the 8.x and 9.x mpy zip file links to download
+# the CircuitPython library bundles. Once the libraries are downloaded and
+# unpacked, the bundle builder will use them to obtain the library mpy files
+# to put in your project bundle zip file.
+#
+[library_bundle]
+"8.x" = "https://github.com/adafruit/Adafruit_CircuitPython_Bundle/releases/download/20240625/adafruit-circuitpython-bundle-8.x-mpy-20240625.zip"
+"9.x" = "https://github.com/adafruit/Adafruit_CircuitPython_Bundle/releases/download/20240625/adafruit-circuitpython-bundle-9.x-mpy-20240625.zip"
+
+
+# Second Project Config Task: List the libraries you want copied from the
+# library bundles into the lib/ directory of your project bundle.
+#
+# Just list the plain library names, one name per line. The versions will be
+# pinned to whatever versions are inside the the 8.x and 9.x mpy library
+# bundles from the links defined in the [library_bundle] section.
+#
+[lib]
+adafruit_midi
+
+
+# Third Project Config Task: List the code files and packages you want copied
+# from the root directory of your code repository to the root directory of your
+# project bundle
+#
+[root]
+boot.py
+code.py
+settings.toml
+mypackage
+
+
+# Fourth Project Config Task: Enter your project metadata to be included in the
+# project bundle README file.
+#
+[meta]
+name = "example_project"
+
+guide_link = "https://adafruit-playground.com/..."
+
+description = """
+You are currently reading the value of the meta.description string defined in
+bundle_manifest.toml. You can edit bundle_manifest.toml with suitable strings
+for the project name, Adafruit Playground guide link, and project description
+to be included in the README for your project bundle.
+"""
