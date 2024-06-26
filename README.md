@@ -130,8 +130,8 @@ Learn guide, there's a code box near the top of the page. The code box's
 in the Adafruit\_Learning\_System\_Guides repo. When I click the code box's
 blue "Download Project Bundle" button, it gives me a file named
 `CPy_Native_WiFi_Test.zip`. When I expand the zip file, it gives me a folder
-named `ESP32\_S2\_WiFi\_Tests`, which contains another folder named
-`CPy\_Native\_WiFi\_Test`. The full directory tree looks like this:
+named `ESP32_S2_WiFi_Tests`, which contains another folder named
+`CPy_Native_WiFi_Test`. The full directory tree looks like this:
 
 ```
 .
