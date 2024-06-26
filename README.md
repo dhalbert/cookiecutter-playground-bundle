@@ -61,10 +61,10 @@ to help set up the working folder for a new project using a project template.
 In discussions among CircuitPython developers, a GitHub repository containing a
 project template may sometimes be called a "cookie cutter". If you see someone
 mention "cookie cutter", "CookieCutter", etc. on Adafruit Discord, they might
-be talking about input to the cookiecutter command line tool (a template). They
-might be talking output from the cookiecutter command line tool (a new project
-repo created from a template). Or, they might be talking about the cookiecutter
-command line tool itself.
+be talking about input to the `cookiecutter` command line tool (a template).
+They might be talking output from the `cookiecutter` command line tool (a new
+project repo created from a template). Or, they might be talking about the
+`cookiecutter` command line tool itself.
 
 For more context on using CookieCutter to help start a CircuitPython library,
 see the
