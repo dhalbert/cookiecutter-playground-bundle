@@ -1,5 +1,9 @@
 name: bundle_builder
 on: push
+
+permissions:
+  contents: write
+
 jobs:
   build_bundle:
     runs-on: ubuntu-latest
