@@ -9,7 +9,7 @@ according to the comments in that file.
 """
 from configparser import ConfigParser
 import os
-import os.path
+from os.path import basename, isdir, isfile
 import re
 import shutil
 import subprocess
@@ -59,13 +59,12 @@ for d in dirs.values():
 # Stage files into the zip archive directory tree
 for src in cfg['root']:
     for dst in [dirs['8.x'], dirs['9.x']]:
-        if os.path.isfile(src):
+        if isfile(src):
             shutil.copy2(src, dst)
-        elif os.path.isdir(src):
-            shutil.copytree(src, f"{dst}/{os.path.basename(src)}")
+        elif isdir(src):
+            shutil.copytree(src, f"{dst}/{basename(src)}")
         else:
             raise FileNotFoundError(src)
-
 
 # Generate the README file
 readme = f"""
@@ -87,6 +86,7 @@ with open(files['readme'], 'w') as f:
     print(readme, file=f)
 
 # Make the zip file
-run(f"zip -r {files['zip']} {dirs['root']}")
+run(f"cd build; zip -r {basename(files['zip'])} {basename(dirs['root'])}")
 
+# Print an unzip listing for the Actions workflow log
 print(run(f"unzip -l {files['zip']}"))
