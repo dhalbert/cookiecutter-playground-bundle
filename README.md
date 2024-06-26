@@ -10,6 +10,32 @@ editor. For related discussion, refer to the "In the weeds" section of the
 [June 24, 2024 CircuitPython weekly meeting](https://github.com/adafruit/adafruit-circuitpython-weekly-meeting/blob/main/2024/2024-06-24.md#2737-in-the-weeds).
 
 
+## How does this work?
+
+This repository is a proof of concept for using a GitHub Actions workflow to
+create CircuitPython project bundle zip files each time you publish a release.
+The point is to further discussion about how to add "Download Project Bundle"
+buttons to Playground guides.
+
+The Actions workflow goes like so:
+
+1. [.github/workflows/bundle_builder.yml](.github/workflows/bundle_builder.yml)
+   is triggered by the creation of tags (such as when publishing a release)
+
+2. `bundle_builder.yml` calls `make bundle` to run
+   [bundle_builder.py](bundle_builder.py)
+
+3. `bundle_builder.py` reads [bundle_manifest.cfg](bundle_manifest.cfg) to
+   determine which files to copy from the repository (`code.py`, etc) into the
+   build directory for the project bundle zip file (note: this is not finished
+   yet; copying of libraries is not finished, but the rest of it works)
+
+4. Once the bundle zip is ready, `.github/workflows/bundle_builder.yml` uses
+   a `gh release upload ...` shell command to upload the bundle zip file to a
+   release (this works, see
+   [release v0.0.0-1](https://github.com/samblenny/cookiecutter-playground-bundle/releases/tag/v0.0.0-1))
+
+
 ## What is this for?
 
 The Adafruit Learning System includes a tool called BundleFly to help Learn
