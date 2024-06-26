@@ -100,7 +100,7 @@ directory in a project-specific repo.
 
 The top level directory of the Adafruit\_Learning\_System\_Guides repo has many
 folders for individual projects, along with some folders for project categories
-like `MagTag` and `QT\_Py`. I'm not clear about the rules BundleFly follows for
+like `MagTag` and `QT_Py`. I'm not clear about the rules BundleFly follows for
 naming project bundle zip files. They may be based on the project folder name
 on GitHub. For code examples that come from an `examples/` directory in a
 project-specific repo, the zip file can be named `examples.zip`, which is a bit
