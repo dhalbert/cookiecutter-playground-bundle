@@ -86,8 +86,9 @@ According to LadyAda's
 blue
 [Download Project Bundle](https://learn.adafruit.com/qtpy-lemon-mechanical-keypad-macropad/code#download-project-bundle-3094704)
 buttons in Learn guides provide zip files created by BundleFly. BundleFly is an
-internal Adafruit tool, so I'm not sure exactly how it works. The following
-description is my best guess based on public information.
+internal Adafruit tool, so I'm not sure exactly how it works. The rest of this
+section focuses on the observable results of what BundleFly does. I'm curious
+about details of how it works, but I wasn't able to find documentation for it.
 
 Anyhow, in addition to code boxes with "Download Project Bundle" buttons, there
 are also code boxes with "Download File" buttons. Based on clicking "View on GitHub" links at the bottom of several example code
