@@ -1,8 +1,7 @@
 # CookieCutter Playground Bundle
 
-**Work in progress (alpha)**
-
-A helper template for adding project bundles to Adafruit Playground guides.
+Actions workflow demo for creating CircuitPython project bundles to use with
+"Download Project Bundle" buttons in Adafruit Playground guides.
 
 The template in this repository is meant to contribute to ongoing discussion
 about how to add a project bundle download feature to the Adafruit Playground
@@ -14,8 +13,6 @@ editor. For related discussion, refer to the "In the weeds" section of the
 
 This repository is a proof of concept for using a GitHub Actions workflow to
 create CircuitPython project bundle zip files each time you publish a release.
-The point is to further discussion about how to add "Download Project Bundle"
-buttons to Playground guides.
 
 The Actions workflow goes like so:
 
