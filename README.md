@@ -37,16 +37,16 @@ discussions about writing Adafruit Playground or Learning System guides.
 
 ### GitHub Actions
 
-[GitHub Action workflows](https://docs.github.com/en/actions/using-workflows)
+[GitHub Actions workflows](https://docs.github.com/en/actions/using-workflows)
 are a way to have GitHub's servers run code when you do things like push a
 commit or create the tag for a new release. Actions workflows are commonly
 used for things like running tests or building downloadable release files. You
-can use a GitHub Action workflow to make a new project bundle zip file when you
+can use a GitHub Actions workflow to make a new project bundle zip file when you
 make updates to example code.
 
 Some Adafruit repositories use
 [CircuitPython_Library_Screenshot_Maker](https://github.com/circuitpython/CircuitPython_Library_Screenshot_Maker)
-in GitHub Action workflows to make CIRCUITPY drive screenshots suitable for
+in GitHub Actions workflows to make CIRCUITPY drive screenshots suitable for
 including in a Learn guide.
 
 
