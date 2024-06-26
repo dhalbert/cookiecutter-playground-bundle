@@ -92,14 +92,14 @@ about details of how it works, but I wasn't able to find documentation for it.
 
 Anyhow, in addition to code boxes with "Download Project Bundle" buttons, there
 are also code boxes with "Download File" buttons. Based on clicking "View on GitHub" links at the bottom of several example code
-boxes in various Learn guides, it seems that many project bundles are made code
-hosted in the
+boxes in various Learn guides, it seems that many project bundles are built
+from code, libraries, and asset files hosted in the
 [Adafruit\_Learning\_System\_Guides](https://github.com/adafruit/Adafruit_Learning_System_Guides)
-GitHub repo. But, some of them come from an `examples/` directory in a
-project-specific repo.
+GitHub repo. But, some of the project bundles also come from an `examples/`
+directory in a project-specific repo.
 
 The top level directory of the Adafruit\_Learning\_System\_Guides repo has many
-folders for individual projects and also some folders for project categories
+folders for individual projects, along with some folders for project categories
 like `MagTag` and `QT\_Py`. I'm not clear about the rules BundleFly follows for
 naming project bundle zip files. They may be based on the project folder name
 on GitHub. For code examples that come from an `examples/` directory in a
@@ -109,9 +109,10 @@ inside of the Adafruit\_Learning\_System\_Guides repo.
 
 The project bundle file names, and the folders they contain when expanded,
 don't always obviously relate to page or section names in the Learn guides. In
-some cases, the project bundles appear to be from another project that uses the
-same example code. That makes sense, because the Learning System editor is set
-up so that sub-sections of Learn guides can be re-used in other Learn guides.
+some cases, the project bundles appear to be from another Learn guide that uses
+the same example code. That makes sense, because the Learning System editor is
+set up so that sub-sections of Learn guides can be re-used in other Learn
+guides.
 
 Also, there were a few GitHub Pull Requests mentioning the need to move or
 rename certain files so they would be detected by BundleFly. It seems as though
