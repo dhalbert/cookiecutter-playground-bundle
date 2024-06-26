@@ -1,5 +1,8 @@
 name: bundle_builder
-on: push
+on:
+  push:
+    tags:
+      - *
 
 permissions:
   contents: write
@@ -16,4 +19,4 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: >
           make bundle
-          && gh release upload v0.0.0 build/*.zip
+          && gh release upload $GITHUB_REF_NAME build/*.zip
