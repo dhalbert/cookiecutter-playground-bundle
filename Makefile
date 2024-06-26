@@ -6,3 +6,6 @@ all:
 bundle:
 	@mkdir -p build
 	python3 bundle_builder.py
+
+clean:
+	rm -rf build
