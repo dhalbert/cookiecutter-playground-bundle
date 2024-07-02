@@ -19,6 +19,40 @@ project:
    [Cookiecutter](https://cookiecutter.readthedocs.io/en/stable/README.html)
    readthedocs documentation for an explanation of how to use CookieCutter.
 
+   For example, you might do it this way (install cookiecutter in a
+   [venv](https://docs.python.org/3/tutorial/venv.html), then invoke it with
+   the `-f` option to overwrite the directory for a new empty git repo):
+   ```
+   $ python3 -m venv cookiecutter-venv
+   $ source cookiecutter-venv/bin/activate
+   (cookiecutter-venv) $ pip install cookiecutter
+   (cookiecutter-venv) $ git clone https://github.com/$GH_USERNAME/test_01.git
+   (cookiecutter-venv) $ cookiecutter -f gh:$GH_USERNAME/cookiecutter-playground-bundle
+     [1/4] project_name (My Project): test_01
+     [2/4] project_slug (test_01):
+     [3/4] description (): A test of using cookiecutter
+     [4/4] author_name (): me
+   (cookiecutter-venv) $ deactivate
+   $ cd test_01/
+   $ git add .
+   $ git status
+   On branch main
+
+   No commits yet
+
+   Changes to be committed:
+     (use "git rm --cached <file>..." to unstage)
+           new file:   .github/workflows/bundle_builder.yml
+           new file:   .gitignore
+           new file:   LICENSE
+           new file:   Makefile
+           new file:   README.md
+           new file:   boot.py
+           new file:   bundle_builder.py
+           new file:   bundle_manifest.cfg
+           new file:   code.py
+   ```
+
 2. Manual way: Copy all of the files inside of the
    [{{ cookiecutter.project_slug }}](%7B%7B%20cookiecutter.project_slug%20%7D%7D)
    directory into the directory for your project's github repo, then edit the
