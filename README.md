@@ -125,9 +125,10 @@ section focuses on the observable results of what BundleFly does. I'm curious
 about details of how it works, but I wasn't able to find documentation for it.
 
 Anyhow, in addition to code boxes with "Download Project Bundle" buttons, there
-are also code boxes with "Download File" buttons. Based on clicking "View on GitHub" links at the bottom of several example code
-boxes in various Learn guides, it seems that many project bundles are built
-from code, libraries, and asset files hosted in the
+are also code boxes with "Download File" buttons. Based on clicking "View on
+GitHub" links at the bottom of several example code boxes in various Learn
+guides, it seems that many project bundles are built from code, libraries, and
+asset files hosted in the
 [Adafruit\_Learning\_System\_Guides](https://github.com/adafruit/Adafruit_Learning_System_Guides)
 GitHub repo. But, some of the project bundles also come from an `examples/`
 directory in a project-specific repo.
