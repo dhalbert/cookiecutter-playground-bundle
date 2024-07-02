@@ -12,9 +12,16 @@ all:
 	@echo "GitHub Actions workflow. You can run the bundle builder manually"
 	@echo "with: make bundle"
 
+# This builds in the template directory, then copies the resulting zip files
+# out to /build/ where the Actions workflow expects to find it. This is
+# totally ignorable if you just want to use cookiecutter to make a new project.
+# But, if you're working on the template itself, or on documentation for the
+# template, this may be helpful.
 bundle:
-	@mkdir -p cd '{{ cookiecutter.project_slug }}/build'
+	@mkdir -p '{{ cookiecutter.project_slug }}/build'
+	@mkdir -p build
 	cd '{{ cookiecutter.project_slug }}' && python3 bundle_builder.py
+	cp '{{ cookiecutter.project_slug }}'/build/*.zip build/
 
 list:
 	unzip -l '{{ cookiecutter.project_slug }}/build/*.zip'
