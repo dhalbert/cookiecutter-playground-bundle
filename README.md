@@ -124,8 +124,7 @@ The Actions workflow goes like so:
 
 4. Once the bundle zip is ready, `.github/workflows/bundle_builder.yml` uses
    a `gh release upload ...` shell command to upload the bundle zip file to a
-   release (this works, see
-   [release v0.0.0-1](https://github.com/samblenny/cookiecutter-playground-bundle/releases/tag/v0.0.0-1))
+   release.
 
 
 ## What is this for?
