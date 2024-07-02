@@ -29,8 +29,8 @@ project:
    git clone $MY_NEW_REPO
    git clone $COOKIECUTTER_TEMPLATE
    cd $COOKIECUTTER_TEMPLATE
-   cp -r '{{ cookiecutter.project_slug }}/*' ../$MY_NEW_REPO/
-   cp -r '{{ cookiecutter.project_slug }}/.git*' ../$MY_NEW_REPO/
+   cp -r '{{ cookiecutter.project_slug }}'/* ../$MY_NEW_REPO/
+   cp -r '{{ cookiecutter.project_slug }}'/.git* ../$MY_NEW_REPO/
    cd ../$MY_NEW_REPO
    vim README.md
    vim LICENSE
