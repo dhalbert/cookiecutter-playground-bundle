@@ -2,5 +2,6 @@
 # file for CircuitPython, see:
 # https://learn.adafruit.com/welcome-to-circuitpython/exploring-your-first-circuitpython-program
 import adafruit_midi
+import neopixel
 
 print("hello, world")
