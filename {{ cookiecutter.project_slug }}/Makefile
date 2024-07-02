@@ -7,5 +7,8 @@ bundle:
 	@mkdir -p build
 	python3 bundle_builder.py
 
+list:
+	unzip -l 'build/*.zip'
+
 clean:
 	rm -rf build
