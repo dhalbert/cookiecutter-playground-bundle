@@ -9,66 +9,50 @@ editor. For related discussion, refer to the "In the weeds" section of the
 [June 24, 2024 CircuitPython weekly meeting](https://github.com/adafruit/adafruit-circuitpython-weekly-meeting/blob/main/2024/2024-06-24.md#2737-in-the-weeds).
 
 
-## How do I use this CookieCutter template?
+## How to use the CookieCutter template
 
-There are two ways to use this repo as a template for your CircuitPython
-project:
+1. On GitHub, make a new repository for your project, including a README.md and
+   LICENSE file.
 
-1. Fancy way: Use the `cookiecutter` commandline tool to start a new project
-   from the template in this repository. See the
+2. In a terminal shell, install cookiecutter in a python virtual environment
+   (venv). You might want to first take a look at the
+   [venv](https://docs.python.org/3/tutorial/venv.html) and
    [Cookiecutter](https://cookiecutter.readthedocs.io/en/stable/README.html)
-   readthedocs documentation for an explanation of how to use CookieCutter.
+   documentation.
 
-   For example, you might do it this way (install cookiecutter in a
-   [venv](https://docs.python.org/3/tutorial/venv.html), then invoke it with
-   the `-f` option to overwrite the directory for a new empty git repo):
+   Your shell session might look like this (the venv is named "cookies"):
    ```
-   $ python3 -m venv cookiecutter-venv
-   $ source cookiecutter-venv/bin/activate
-   (cookiecutter-venv) $ pip install cookiecutter
-   (cookiecutter-venv) $ git clone https://github.com/$GH_USERNAME/test_01.git
-   (cookiecutter-venv) $ cookiecutter -f gh:$GH_USERNAME/cookiecutter-playground-bundle
-     [1/4] project_name (My Project): test_01
-     [2/4] project_slug (test_01):
-     [3/4] description (): A test of using cookiecutter
-     [4/4] author_name (): me
-   (cookiecutter-venv) $ deactivate
+   $ python3 -m venv cookies
+   $ source cookies/bin/activate
+   (cookies) $ pip install cookiecutter
+   ...
+   ```
+
+3. With the cookies venv still activated, clone your new project repo then use
+   `cookiecutter` with the `-f` option to copy files from the template in this
+   repository into the cloned copy of your new project repo:
+   ```
+   (cookies) $ git clone https://github.com/samblenny/test_01.git
+   (cookies) $ cookiecutter -f gh:samblenny/cookiecutter-playground-bundle
+     [1/2] project_name (My Project): test_01
+     [2/2] project_slug (test_01):
+   (cookies) $ deactivate
    $ cd test_01/
    $ git add .
    $ git status
    On branch main
-
-   No commits yet
+   Your branch is up to date with 'origin/main'.
 
    Changes to be committed:
-     (use "git rm --cached <file>..." to unstage)
+     (use "git restore --staged <file>..." to unstage)
            new file:   .github/workflows/bundle_builder.yml
            new file:   .gitignore
-           new file:   LICENSE
            new file:   Makefile
-           new file:   README.md
            new file:   boot.py
            new file:   bundle_builder.py
            new file:   bundle_manifest.cfg
            new file:   code.py
-   ```
-
-2. Manual way: Copy all of the files inside of the
-   [{{ cookiecutter.project_slug }}](%7B%7B%20cookiecutter.project_slug%20%7D%7D)
-   directory into the directory for your project's github repo, then edit the
-   README.md and LICENSE files to fill in the correct project and author info.
-   For example, in terminal shell, you could do something like this:
-
-   ```
-   git clone $MY_NEW_REPO
-   git clone $COOKIECUTTER_TEMPLATE
-   cd $COOKIECUTTER_TEMPLATE
-   cp -r '{{ cookiecutter.project_slug }}'/* ../$MY_NEW_REPO/
-   cp -r '{{ cookiecutter.project_slug }}'/.git* ../$MY_NEW_REPO/
-   cd ../$MY_NEW_REPO
-   vim README.md
-   vim LICENSE
-   git status
+   $ git commit -m 'Add files from project template'
    ```
 
 Once you add the files to your new project repo, commit the changes, and push
@@ -85,6 +69,25 @@ documentation page.
 Note that you will probably need to edit the `bundle_manifest.cfg` file in your
 new repo. The bundle manifest determines which code files and library versions
 get included in your project bundle zip file.
+
+
+## Alternate Method: Manually Copy the Template
+
+If you don't want to install cookiecutter, you can just copy all of the files
+inside of the
+[{{ cookiecutter.project_slug }}](%7B%7B%20cookiecutter.project_slug%20%7D%7D)
+directory into your project's github repo. Be careful not to omit the `.github`
+directory. For example, in terminal shell, you could do something like this:
+
+```
+git clone $MY_NEW_REPO
+git clone $COOKIECUTTER_TEMPLATE
+cd $COOKIECUTTER_TEMPLATE
+cp -r '{{ cookiecutter.project_slug }}'/* ../$MY_NEW_REPO/
+cp -r '{{ cookiecutter.project_slug }}'/.git* ../$MY_NEW_REPO/
+cd ../$MY_NEW_REPO
+git status
+```
 
 
 ## How does this work?
