@@ -118,13 +118,20 @@ The Actions workflow goes like so:
 3. `bundle_builder.py` reads
    [{{ cookiecutter.project_slug }}/bundle_manifest.cfg](%7B%7B%20cookiecutter.project_slug%20%7D%7D/bundle_manifest.cfg)
    to determine which files to copy from the repository (`code.py`, etc) into
-   the build directory for the project bundle zip file (**note: this is not
-   finished yet; copying of libraries is not finished, but the rest of it
-   works**)
+   the build directory for the project bundle zip file.
 
 4. Once the bundle zip is ready, `.github/workflows/bundle_builder.yml` uses
    a `gh release upload ...` shell command to upload the bundle zip file to a
    release.
+
+
+## How are library dependencies determined?
+
+For the moment, you need to specify the exact list of libraries that you want
+to be included in the project bundle by listing them in your bundle manifest
+file. Automatic dependency resolution is a non-trivial problem with all sorts
+of lurking surprises and dangers. To keep things simple, for now, you just need
+to make your own list by hand.
 
 
 ## What is this for?
