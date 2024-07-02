@@ -17,15 +17,26 @@ create CircuitPython project bundle zip files each time you publish a release.
 The Actions workflow goes like so:
 
 1. [.github/workflows/bundle_builder.yml](.github/workflows/bundle_builder.yml)
-   is triggered by the creation of tags (such as when publishing a release)
+   is triggered by the creation of tags (such as when publishing a release).
+   Note that there are two different `.github/workflows/bundle_builder.yml`
+   files. The one at the root level of this repo is meant to help with testing
+   the bundle builder template. The one in
+   [{{ cookiecutter.project_slug }}](%7B%7B%20cookiecutter.project_slug%20%7D%7D)
+   gets copied into new projects created using `cookiecutter`.
 
 2. `bundle_builder.yml` calls `make bundle` to run
-   [bundle_builder.py](bundle_builder.py)
+   [{{ cookiecutter.project_slug }}/bundle_builder.py](%7B%7B%20cookiecutter.project_slug%20%7D%7D/bundle_builder.py).
+   Note that there are two Makefiles. The one at the root level of this repo is
+   meant to help with testing the bundle builder template. The one in
+   [{{ cookiecutter.project_slug }}](%7B%7B%20cookiecutter.project_slug%20%7D%7D)
+   gets copied into new projects created using `cookiecutter`.
 
-3. `bundle_builder.py` reads [bundle_manifest.cfg](bundle_manifest.cfg) to
-   determine which files to copy from the repository (`code.py`, etc) into the
-   build directory for the project bundle zip file (note: this is not finished
-   yet; copying of libraries is not finished, but the rest of it works)
+3. `bundle_builder.py` reads
+   [{{ cookiecutter.project_slug }}/bundle_manifest.cfg](%7B%7B%20cookiecutter.project_slug%20%7D%7D/bundle_manifest.cfg)
+   to determine which files to copy from the repository (`code.py`, etc) into
+   the build directory for the project bundle zip file (**note: this is not
+   finished yet; copying of libraries is not finished, but the rest of it
+   works**)
 
 4. Once the bundle zip is ready, `.github/workflows/bundle_builder.yml` uses
    a `gh release upload ...` shell command to upload the bundle zip file to a
