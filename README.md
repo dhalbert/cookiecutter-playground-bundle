@@ -9,6 +9,50 @@ editor. For related discussion, refer to the "In the weeds" section of the
 [June 24, 2024 CircuitPython weekly meeting](https://github.com/adafruit/adafruit-circuitpython-weekly-meeting/blob/main/2024/2024-06-24.md#2737-in-the-weeds).
 
 
+## How do I use this CookieCutter template?
+
+There are two ways to use this repo as a template for your CircuitPython
+project:
+
+1. Fancy way: Use the `cookiecutter` commandline tool to start a new project
+   from the template in this repository. See the
+   [Cookiecutter](https://cookiecutter.readthedocs.io/en/stable/README.html)
+   readthedocs documentation for an explanation of how to use CookieCutter.
+
+2. Manual way: Copy all of the files inside of the
+   [{{ cookiecutter.project_slug }}](%7B%7B%20cookiecutter.project_slug%20%7D%7D)
+   directory into the directory for your project's github repo, then edit the
+   README.md and LICENSE files to fill in the correct project and author info.
+   For example, in terminal shell, you could do something like this:
+
+   ```
+   git clone $MY_NEW_REPO
+   git clone $COOKIECUTTER_TEMPLATE
+   cd $COOKIECUTTER_TEMPLATE
+   cp -r '{{ cookiecutter.project_slug }}/*' ../$MY_NEW_REPO/
+   cp -r '{{ cookiecutter.project_slug }}/.git*' ../$MY_NEW_REPO/
+   cd ../$MY_NEW_REPO
+   vim README.md
+   vim LICENSE
+   git status
+   ```
+
+Once you add the files to your new project repo, commit the changes, and push
+them to GitHub, you will have a GitHub Actions workflow that makes project
+bundle zip files. To trigger the bundle builder, you can make a
+[tagged release](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)
+on GitHub (the tag triggers the workflow). Assuming the bundle builder works as
+planned, it should attach a zip file to the GitHub page for your tagged release.
+To check for bundle builder errors (perhaps a typo in the config file?), refer
+to GitHub's
+[Viewing workflow run history](https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)
+documentation page.
+
+Note that you will probably need to edit the `bundle_manifest.cfg` file in your
+new repo. The bundle manifest determines which code files and library versions
+get included in your project bundle zip file.
+
+
 ## How does this work?
 
 This repository is a proof of concept for using a GitHub Actions workflow to
