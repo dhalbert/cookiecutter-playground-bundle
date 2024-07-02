@@ -12,7 +12,10 @@ editor. For related discussion, refer to the "In the weeds" section of the
 ## How to use the CookieCutter template
 
 1. On GitHub, make a new repository for your project, including a README.md and
-   LICENSE file.
+   LICENSE file. For the example below, I named my repo `test_01`. Note that
+   when `cookiecutter` prompts you for the `project_slug` option, you need to
+   make sure that the project slug value matches the name of the directory
+   containing your cloned github repo (`test_01` in this case).
 
 2. In a terminal shell, install cookiecutter in a python virtual environment
    (venv). You might want to first take a look at the
