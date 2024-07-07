@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Copyright 2024 Sam Blenny
 """
 A CircuitPython project bundle builder for use with Adafruit Playground guides.
 
