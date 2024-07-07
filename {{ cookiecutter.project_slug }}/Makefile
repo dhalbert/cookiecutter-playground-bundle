@@ -18,7 +18,7 @@ list:
 # as needed. You might also want to read the rsync manual (try "man rsync" from
 # a Terminal shell on macOS or Linux).
 sync: bundle
-	xattr -cr build/camtest
+	xattr -cr 'build/{{ cookiecutter.project_slug }}'
 	rsync -rcvO 'build/{{ cookiecutter.project_slug }}/CircuitPython 9.x/' /Volumes/CIRCUITPY
 	sync
 
